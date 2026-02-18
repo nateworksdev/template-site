@@ -38,6 +38,11 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-dark-foreground: var(--brand-dark-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -96,6 +101,17 @@
   --chart-3: oklch(0.50 0.10 200);
   --chart-4: oklch(0.60 0.12 75);
   --chart-5: oklch(0.65 0.08 145);
+
+  /* 
+   * Surface System — alternating section backgrounds
+   * Creates visual rhythm without harsh contrast
+   */
+  --surface: oklch(0.975 0.004 85);        /* warm off-white */
+  --surface-2: oklch(0.96 0.008 80);       /* light sand/paper */
+  --surface-3: oklch(0.965 0.012 140);     /* subtle sage tint */
+  --brand-dark: oklch(0.25 0.06 145);      /* deep forest for CTAs */
+  --brand-dark-foreground: oklch(0.96 0.01 90);
+  
   /* Sidebar (matches theme) */
   --sidebar: oklch(0.97 0.008 140);
   --sidebar-foreground: oklch(0.205 0.015 150);

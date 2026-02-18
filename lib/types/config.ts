@@ -76,11 +76,24 @@ export type HomeSection =
   | { type: "process"; data: ProcessData }
   | { type: "faq"; data: FAQData }
   | { type: "cta"; data: CTAData }
-  | { type: "instant-estimator"; data: InstantEstimatorData };
+  | { type: "instant-estimator"; data: InstantEstimatorData }
+  | { type: "image-band"; data: ImageBandData };
 
 export interface InstantEstimatorData {
   heading: string;
   subheading?: string;
+}
+
+export interface ImageBandData {
+  image: string;
+  heading?: string;
+  subheading?: string;
+  cta?: {
+    text: string;
+    href: string;
+  };
+  overlay?: "light" | "dark" | "gradient";
+  height?: "sm" | "md" | "lg";
 }
 
 export interface HeroData {

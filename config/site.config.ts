@@ -45,7 +45,7 @@ export const siteConfig: SiteConfig = {
       sections: [
         {
           type: "hero",
-          variant: "split",
+          variant: "fullscreen",
           data: {
             heading: "Professional Tree Care You Can Trust",
             subheading:
@@ -54,7 +54,7 @@ export const siteConfig: SiteConfig = {
               text: "Get Free Estimate",
               href: "/contact",
             },
-            image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&h=800&fit=crop",
+            image: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&h=900&fit=crop",
           },
         },
         {
@@ -63,7 +63,7 @@ export const siteConfig: SiteConfig = {
           data: {
             heading: "Our Services",
             subheading: "Complete tree care solutions for residential and commercial properties",
-            showAll: true,
+            showAll: false,
           },
         },
         {
@@ -74,16 +74,13 @@ export const siteConfig: SiteConfig = {
           },
         },
         {
-          type: "featured-service",
+          type: "image-band",
           data: {
-            serviceId: "emergency-removal",
-            heading: "24/7 Emergency Tree Removal",
-            description:
-              "Storm damage? Fallen tree? We're available around the clock for emergency situations.",
-            cta: {
-              text: "Call Now",
-              href: "tel:5551234567",
-            },
+            image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1600&h=600&fit=crop",
+            heading: "Trusted by Homeowners Since 1995",
+            subheading: "Over 10,000 trees cared for across the region",
+            height: "md",
+            overlay: "gradient",
           },
         },
         {

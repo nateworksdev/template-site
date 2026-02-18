@@ -7,3 +7,4 @@ export { Process } from "./process";
 export { FAQ } from "./faq";
 export { CTA } from "./cta";
 export { InstantEstimator } from "./instant-estimator";
+export { ImageBand } from "./image-band";
