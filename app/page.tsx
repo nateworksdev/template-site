@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main-content">
         {siteConfig.pages.home.sections.map((section, index) => (
           <SectionRenderer key={index} section={section} />
         ))}

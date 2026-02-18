@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { GalleryData } from "@/lib/types/config";
 
 interface GalleryProps {
@@ -29,10 +30,12 @@ function GalleryMasonry({ data }: { data: GalleryData }) {
             key={index}
             className="relative aspect-square overflow-hidden rounded-lg"
           >
-            <img
+            <Image
               src={image.src}
               alt={image.alt}
-              className="h-full w-full object-cover transition-transform hover:scale-105"
+              fill
+              className="object-cover transition-transform hover:scale-105"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
           </div>
         ))}
@@ -60,10 +63,12 @@ function GalleryBeforeAfter({ data }: { data: GalleryData }) {
                   Before
                 </p>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                  <img
+                  <Image
                     src={image.before}
                     alt={`Before: ${image.alt}`}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               </div>
@@ -73,10 +78,12 @@ function GalleryBeforeAfter({ data }: { data: GalleryData }) {
                 After
               </p>
               <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                <img
+                <Image
                   src={image.src}
                   alt={image.alt}
-                  className="h-full w-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </div>

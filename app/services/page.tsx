@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import * as LucideIcons from "lucide-react";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
@@ -39,10 +40,12 @@ export default function ServicesPage() {
                 >
                   {service.image && (
                     <div className="relative aspect-[4/3] overflow-hidden">
-                      <img
+                      <Image
                         src={service.image}
                         alt={service.name}
-                        className="h-full w-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     </div>
                   )}

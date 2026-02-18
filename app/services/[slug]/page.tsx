@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import * as LucideIcons from "lucide-react";
 import { Nav } from "@/components/nav";
@@ -55,10 +56,13 @@ export default async function ServiceDetailPage({
       <main>
         {service.image && (
           <section className="relative h-[40vh] overflow-hidden">
-            <img
+            <Image
               src={service.image}
               alt={service.name}
-              className="h-full w-full object-cover"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
             />
             <div className="absolute inset-0 bg-black/40" />
           </section>

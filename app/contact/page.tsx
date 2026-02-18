@@ -12,11 +12,17 @@ import { siteConfig } from "@/config/site.config";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { heading, subheading } = siteConfig.pages.contact;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
+    
     // TODO: Implement form submission
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+    setLoading(false);
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
   };
@@ -158,8 +164,8 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
-                  {submitted ? "Message Sent!" : "Send Message"}
+                <Button type="submit" size="lg" className="w-full" disabled={loading || submitted}>
+                  {loading ? "Sending..." : submitted ? "Message Sent!" : "Send Message"}
                 </Button>
               </form>
 

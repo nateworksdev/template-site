@@ -97,8 +97,8 @@ export function ServiceEstimator({
         </div>
         <h3 className="mb-2 text-2xl font-semibold">Thank You!</h3>
         <p className="text-muted-foreground">
-          We've received your request for <strong>{serviceName}</strong>.
-          We'll contact you shortly with a detailed quote.
+          We&apos;ve received your request for <strong>{serviceName}</strong>.
+          We&apos;ll contact you shortly with a detailed quote.
         </p>
       </div>
     );
@@ -216,6 +216,7 @@ export function ServiceEstimator({
                         handleAnswerChange(question.id, e.target.value)
                       }
                       className="h-4 w-4 accent-primary"
+                      aria-label={option.label}
                     />
                     <span className="text-sm">{option.label}</span>
                   </label>

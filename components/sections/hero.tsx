@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import type { HeroData } from "@/lib/types/config";
 
@@ -56,10 +57,13 @@ function HeroSplit({ data }: { data: HeroData }) {
         </div>
         {data.image && (
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-            <img
+            <Image
               src={data.image}
               alt={data.heading}
-              className="h-full w-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
             />
           </div>
         )}

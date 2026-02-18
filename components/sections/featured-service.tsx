@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import type { FeaturedServiceData } from "@/lib/types/config";
 import { siteConfig } from "@/config/site.config";
@@ -18,10 +19,12 @@ export function FeaturedService({ data }: FeaturedServiceProps) {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
           {service.image && (
             <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-              <img
+              <Image
                 src={service.image}
                 alt={service.name}
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           )}

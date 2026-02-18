@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { siteConfig } from "@/config/site.config";
@@ -38,11 +39,13 @@ export default function AboutPage() {
                     className="rounded-lg border bg-card p-6 text-center"
                   >
                     {member.photo && (
-                      <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full">
-                        <img
+                      <div className="relative mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full">
+                        <Image
                           src={member.photo}
                           alt={member.name}
-                          className="h-full w-full object-cover"
+                          fill
+                          className="object-cover"
+                          sizes="96px"
                         />
                       </div>
                     )}
