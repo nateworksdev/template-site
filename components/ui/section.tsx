@@ -43,20 +43,32 @@ export function Section({
   children,
   ...props
 }: SectionProps) {
+  const isBrandBand = variant === "brandBand";
+  
   return (
     <section
       className={cn(
+        "relative overflow-hidden",
         variantStyles[variant],
         paddingStyles[padding],
         className
       )}
       {...props}
     >
-      {fullWidth ? (
-        children
-      ) : (
-        <Container narrow={narrow}>{children}</Container>
+      {/* Ibelick-style dot pattern for brandBand */}
+      {isBrandBand && (
+        <div className="absolute inset-0 opacity-[0.06]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,currentColor_1px,transparent_0)] [background-size:28px_28px]" />
+        </div>
       )}
+      
+      <div className="relative z-10">
+        {fullWidth ? (
+          children
+        ) : (
+          <Container narrow={narrow}>{children}</Container>
+        )}
+      </div>
     </section>
   );
 }
