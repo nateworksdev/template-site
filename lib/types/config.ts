@@ -75,7 +75,13 @@ export type HomeSection =
   | { type: "reviews"; variant: "carousel" | "grid"; data: ReviewsData }
   | { type: "process"; data: ProcessData }
   | { type: "faq"; data: FAQData }
-  | { type: "cta"; data: CTAData };
+  | { type: "cta"; data: CTAData }
+  | { type: "instant-estimator"; data: InstantEstimatorData };
+
+export interface InstantEstimatorData {
+  heading: string;
+  subheading?: string;
+}
 
 export interface HeroData {
   heading: string;

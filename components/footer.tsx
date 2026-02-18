@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site.config";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t bg-muted/50">
-      <div className="container py-12">
+    <footer className="border-t border-border/50 bg-muted/30">
+      <Container className="py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div>
@@ -132,13 +133,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-border/50 pt-8 text-center text-sm text-muted-foreground">
           <p>
             &copy; {currentYear} {siteConfig.meta.siteName}. All rights
             reserved.
           </p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

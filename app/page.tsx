@@ -9,6 +9,7 @@ import {
   Process,
   FAQ,
   CTA,
+  InstantEstimator,
 } from "@/components/sections";
 import { siteConfig } from "@/config/site.config";
 import type { HomeSection } from "@/lib/types/config";
@@ -45,6 +46,8 @@ function SectionRenderer({ section }: { section: HomeSection }) {
       return <FAQ data={section.data} />;
     case "cta":
       return <CTA data={section.data} />;
+    case "instant-estimator":
+      return <InstantEstimator data={section.data} />;
     default:
       return null;
   }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site.config";
 
 export const metadata = {
@@ -13,30 +14,30 @@ export default function AboutPage() {
   return (
     <>
       <Nav />
-      <main>
-        <section className="bg-muted/50 py-16">
-          <div className="container text-center">
-            <h1 className="mb-4">{heading}</h1>
-          </div>
+      <main id="main-content">
+        <section className="bg-muted/30 py-20">
+          <Container className="text-center">
+            <h1 className="mb-4 text-balance">{heading}</h1>
+          </Container>
         </section>
 
-        <section className="container py-16">
-          <div className="mx-auto max-w-3xl">
-            <div className="prose prose-neutral dark:prose-invert prose-lg">
-              <p>{story}</p>
+        <section className="py-20">
+          <Container narrow>
+            <div className="prose prose-neutral dark:prose-invert prose-lg max-w-none">
+              <p className="leading-relaxed">{story}</p>
             </div>
-          </div>
+          </Container>
         </section>
 
         {team && team.length > 0 && (
-          <section className="bg-muted/30 py-16">
-            <div className="container">
-              <h2 className="mb-12 text-center">Meet Our Team</h2>
+          <section className="bg-muted/30 py-20">
+            <Container>
+              <h2 className="mb-14 text-center text-balance">Meet Our Team</h2>
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {team.map((member, index) => (
                   <div
                     key={index}
-                    className="rounded-lg border bg-card p-6 text-center"
+                    className="rounded-xl border bg-card p-6 text-center transition-shadow hover:shadow-md"
                   >
                     {member.photo && (
                       <div className="relative mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full">
@@ -52,28 +53,28 @@ export default function AboutPage() {
                     <h3 className="mb-1 text-xl font-semibold">
                       {member.name}
                     </h3>
-                    <p className="mb-2 text-sm text-primary">{member.role}</p>
+                    <p className="mb-2 text-sm font-medium text-primary">{member.role}</p>
                     {member.bio && (
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {member.bio}
                       </p>
                     )}
                   </div>
                 ))}
               </div>
-            </div>
+            </Container>
           </section>
         )}
 
         {certifications && certifications.length > 0 && (
-          <section className="container py-16">
-            <h2 className="mb-8 text-center">Certifications & Credentials</h2>
-            <div className="mx-auto max-w-2xl">
+          <section className="py-20">
+            <Container narrow>
+              <h2 className="mb-10 text-center text-balance">Certifications & Credentials</h2>
               <ul className="space-y-3">
                 {certifications.map((cert, index) => (
                   <li
                     key={index}
-                    className="flex items-center gap-3 rounded-lg border bg-card p-4"
+                    className="flex items-center gap-4 rounded-xl border bg-card p-4"
                   >
                     <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                       <svg
@@ -94,7 +95,7 @@ export default function AboutPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Container>
           </section>
         )}
       </main>

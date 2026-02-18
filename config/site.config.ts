@@ -67,6 +67,13 @@ export const siteConfig: SiteConfig = {
           },
         },
         {
+          type: "instant-estimator",
+          data: {
+            heading: "Get an Instant Estimate",
+            subheading: "Adjust the sliders to see your estimated price range. No commitment, no pressure.",
+          },
+        },
+        {
           type: "featured-service",
           data: {
             serviceId: "emergency-removal",
