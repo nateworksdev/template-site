@@ -54,7 +54,7 @@ export const siteConfig: SiteConfig = {
               text: "Get Free Estimate",
               href: "/contact",
             },
-            image: "/images/hero-tree.jpg",
+            image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&h=800&fit=crop",
           },
         },
         {
@@ -186,7 +186,7 @@ export const siteConfig: SiteConfig = {
         "Regular trimming and pruning is essential for tree health and safety. Our certified arborists use proper techniques to remove dead or diseased branches, improve tree structure, and enhance appearance while promoting healthy growth.",
       featured: true,
       icon: "scissors",
-      image: "/images/services/trimming.jpg",
+      image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop",
       pricing: {
         type: "quote",
       },
@@ -201,7 +201,7 @@ export const siteConfig: SiteConfig = {
         "When a tree becomes hazardous or needs to be removed, we handle it safely and efficiently. We use specialized equipment and techniques to remove trees of any size without damaging your property.",
       featured: true,
       icon: "tree-pine",
-      image: "/images/services/removal.jpg",
+      image: "https://images.unsplash.com/photo-1473445730015-841f29a9490b?w=800&h=600&fit=crop",
       pricing: {
         type: "quote",
       },
@@ -215,7 +215,7 @@ export const siteConfig: SiteConfig = {
         "Stumps are unsightly and can be hazardous. Our professional stump grinding service removes stumps below ground level, allowing you to replant or reclaim your space.",
       featured: true,
       icon: "circle-slash",
-      image: "/images/services/stump.jpg",
+      image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&h=600&fit=crop",
       pricing: {
         type: "starting",
         value: 150,
@@ -230,7 +230,7 @@ export const siteConfig: SiteConfig = {
         "Storms don't wait, and neither do we. Our emergency tree removal service is available 24/7 to handle fallen trees, hanging branches, and other urgent situations quickly and safely.",
       featured: true,
       icon: "siren",
-      image: "/images/services/emergency.jpg",
+      image: "https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=800&h=600&fit=crop",
       pricing: {
         type: "quote",
       },
@@ -243,7 +243,7 @@ export const siteConfig: SiteConfig = {
       longDescription:
         "Preparing land for construction or development requires proper tree and brush removal. We provide complete land clearing services with minimal environmental impact.",
       icon: "tractor",
-      image: "/images/services/clearing.jpg",
+      image: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=800&h=600&fit=crop",
       pricing: {
         type: "quote",
       },
@@ -256,7 +256,7 @@ export const siteConfig: SiteConfig = {
       longDescription:
         "Keep your trees healthy with our comprehensive tree health care services. We diagnose diseases, treat pest infestations, and provide preventative care to protect your investment.",
       icon: "heart-pulse",
-      image: "/images/services/health.jpg",
+      image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop",
       pricing: {
         type: "quote",
       },

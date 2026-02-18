@@ -4,6 +4,7 @@ import * as LucideIcons from "lucide-react";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
+import { ServiceEstimator } from "@/components/service-estimator";
 import { siteConfig } from "@/config/site.config";
 
 export function generateStaticParams() {
@@ -64,46 +65,64 @@ export default async function ServiceDetailPage({
         )}
 
         <section className="container py-16">
-          <div className="mx-auto max-w-3xl">
-            {Icon && (
-              <div className="mb-6 inline-flex rounded-lg bg-primary/10 p-4 text-primary">
-                <Icon className="h-8 w-8" />
-              </div>
-            )}
-            <h1 className="mb-4">{service.name}</h1>
-            <p className="mb-8 text-xl text-muted-foreground">
-              {service.description}
-            </p>
+          <div className="grid gap-12 lg:grid-cols-[1fr,400px]">
+            {/* Main Content */}
+            <div>
+              {Icon && (
+                <div className="mb-6 inline-flex rounded-lg bg-primary/10 p-4 text-primary">
+                  <Icon className="h-8 w-8" />
+                </div>
+              )}
+              <h1 className="mb-4">{service.name}</h1>
+              <p className="mb-8 text-xl text-muted-foreground">
+                {service.description}
+              </p>
 
-            {service.longDescription && (
-              <div className="prose prose-neutral dark:prose-invert mb-8">
-                <p>{service.longDescription}</p>
-              </div>
-            )}
+              {service.longDescription && (
+                <div className="prose prose-neutral dark:prose-invert mb-8">
+                  <p>{service.longDescription}</p>
+                </div>
+              )}
 
-            {service.pricing && (
-              <div className="mb-8 rounded-lg border bg-muted/50 p-6">
-                <h3 className="mb-2 text-lg font-semibold">Pricing</h3>
-                <p className="text-muted-foreground">
-                  {service.pricing.type === "starting" &&
-                    `Starting at $${service.pricing.value}`}
-                  {service.pricing.type === "fixed" &&
-                    `$${service.pricing.value}`}
-                  {service.pricing.type === "quote" &&
-                    "Contact us for a custom quote"}
-                </p>
-              </div>
-            )}
+              {service.pricing && (
+                <div className="mb-8 rounded-lg border bg-muted/50 p-6">
+                  <h3 className="mb-2 text-lg font-semibold">Pricing</h3>
+                  <p className="text-muted-foreground">
+                    {service.pricing.type === "starting" &&
+                      `Starting at $${service.pricing.value}`}
+                    {service.pricing.type === "fixed" &&
+                      `$${service.pricing.value}`}
+                    {service.pricing.type === "quote" &&
+                      "Contact us for a custom quote"}
+                  </p>
+                </div>
+              )}
 
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Button asChild size="lg">
-                <Link href="/contact">Get Free Estimate</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <a href={`tel:${siteConfig.contact.phone.replace(/\D/g, "")}`}>
-                  Call {siteConfig.contact.phone}
-                </a>
-              </Button>
+              <div className="flex flex-col gap-4 sm:flex-row lg:hidden">
+                <Button asChild size="lg">
+                  <Link href="/contact">Get Free Estimate</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <a href={`tel:${siteConfig.contact.phone.replace(/\D/g, "")}`}>
+                    Call {siteConfig.contact.phone}
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            {/* Estimator Sidebar */}
+            <div className="lg:sticky lg:top-24 lg:self-start">
+              <ServiceEstimator
+                serviceId={service.id}
+                serviceName={service.name}
+                basePriceRange={
+                  service.pricing?.type === "starting" && service.pricing.value
+                    ? { min: service.pricing.value, max: service.pricing.value * 2.5 }
+                    : service.pricing?.type === "quote"
+                    ? { min: 200, max: 2000 }
+                    : undefined
+                }
+              />
             </div>
           </div>
         </section>

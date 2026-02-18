@@ -1,36 +1,196 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Blue-Collar Business Template
 
-## Getting Started
+A modern, config-driven website template for local service businesses (tree care, plumbing, HVAC, landscaping, etc.).
 
-First, run the development server:
+## Features
+
+- **Config-driven**: Edit `config/site.config.ts` to customize all content
+- **Theme system**: Brand colors mapped to CSS variables
+- **Modular sections**: Hero, Services Grid, Reviews, Process, FAQ, CTA, Gallery
+- **Mobile-first**: Responsive design with Vaul drawer navigation
+- **Smart Service Estimator**: Interactive multi-step form with pricing estimates
+- **Built with**: Next.js 16, TypeScript, Tailwind v4, shadcn/ui
+
+## Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Deploy to Vercel
+vercel
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Site Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit `config/site.config.ts` to change:
+- Site name, tagline, description
+- Brand colors (primary, secondary, accent)
+- Contact information
+- Services offered
+- Page sections and their order
 
-## Learn More
+### 2. Theme Colors
 
-To learn more about Next.js, take a look at the following resources:
+Brand colors are defined in `config/site.config.ts`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```ts
+brand: {
+  colors: {
+    primary: "#2d5016",   // Main brand color
+    secondary: "#8b4513", // Optional secondary
+    accent: "#f4a460",    // Optional accent
+  }
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+These are automatically mapped to CSS variables and used throughout the site.
 
-## Deploy on Vercel
+### 3. Adding Services
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add services to the `services` array in `config/site.config.ts`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```ts
+{
+  id: "service-id",
+  name: "Service Name",
+  slug: "service-slug",
+  description: "Short description",
+  longDescription: "Longer description for detail page",
+  featured: true,
+  icon: "lucide-icon-name", // See lucide.dev
+  image: "https://example.com/image.jpg",
+  pricing: {
+    type: "quote" | "starting" | "fixed",
+    value: 150, // Optional
+  }
+}
+```
+
+### 4. Home Page Sections
+
+Customize sections in `config/site.config.ts` under `pages.home.sections`:
+
+```ts
+sections: [
+  { type: "hero", variant: "split", data: { ... } },
+  { type: "services", variant: "grid", data: { ... } },
+  { type: "reviews", variant: "carousel", data: { ... } },
+  // ... more sections
+]
+```
+
+Available sections:
+- **Hero** (minimal | split | fullscreen)
+- **Services Grid** (grid | cards)
+- **Featured Service**
+- **Gallery** (masonry | before-after)
+- **Reviews** (carousel | grid)
+- **Process**
+- **FAQ**
+- **CTA**
+
+### 5. Service Estimator
+
+The estimator adapts questions based on service type. Edit question sets in `lib/types/estimator.ts`:
+
+```ts
+export const defaultEstimatorQuestions: Record<string, EstimatorQuestion[]> = {
+  "service-id": [
+    {
+      id: "question-id",
+      question: "What size is the project?",
+      type: "radio",
+      options: [
+        { value: "small", label: "Small", pricingImpact: 0 },
+        { value: "large", label: "Large", pricingImpact: 1 },
+      ],
+    },
+  ],
+}
+```
+
+### 6. Images
+
+Replace placeholder images in `config/site.config.ts` with your own:
+
+```ts
+image: "/images/hero.jpg" // Local
+// or
+image: "https://example.com/hero.jpg" // Remote
+```
+
+Add images to `public/images/`.
+
+### 7. Form Submission
+
+The contact form and estimator currently log to console. To connect a backend:
+
+1. **Option A: Vercel Forms** (easiest)
+   - Add `action` attribute to forms
+   - Enable in Vercel dashboard
+
+2. **Option B: API Route**
+   - Create `app/api/contact/route.ts`
+   - Handle POST requests
+   - Send email via Resend, SendGrid, etc.
+
+3. **Option C: Third-party service**
+   - FormSpree, Basin, etc.
+
+### 8. SEO
+
+Update metadata in:
+- `app/layout.tsx` (global)
+- Individual page files (page-specific)
+
+### 9. Analytics
+
+Add analytics in `app/layout.tsx`:
+
+```tsx
+<Script src="https://analytics.example.com/script.js" />
+```
+
+## Deployment
+
+### Vercel (Recommended)
+
+```bash
+vercel
+```
+
+The project is already linked. Just push to GitHub and Vercel will auto-deploy.
+
+### Environment Variables
+
+None required by default. Add as needed for:
+- Email service API keys
+- Analytics tokens
+- CMS integrations
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Mobile Nav**: Vaul (drawer)
+- **Icons**: Lucide
+- **Deployment**: Vercel
+
+## License
+
+MIT
+
+---
+
+Built with [OpenClaw](https://openclaw.ai) 🦞

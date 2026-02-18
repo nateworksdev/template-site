@@ -1,0 +1,13 @@
+# Placeholder for images directory
+# Replace these paths in site.config.ts with your actual images
+
+# Recommended services for placeholder images:
+# - https://unsplash.com (free, high quality)
+# - https://placeholder.com (simple placeholders)
+# - Client-provided photos
+
+# Suggested structure:
+# /images/hero-*.jpg
+# /images/services/*.jpg
+# /images/gallery/*.jpg
+# /images/team/*.jpg
